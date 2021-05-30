@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "33129135053",
+    "project_id": "canvas-c7d6d",
+    "storage_bucket": "canvas-c7d6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33129135053:android:dca7eff6ab491d11212284",
+        "android_client_info": {
+          "package_name": "com.shivam.canvas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33129135053-aml8339r9sc3c68dluvg4h8tu75jo77j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9MB70gg-zn4a6GUAjRwukc0BZ4Qn_Jdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "33129135053-aml8339r9sc3c68dluvg4h8tu75jo77j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

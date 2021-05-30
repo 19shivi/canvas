@@ -28,7 +28,8 @@
         android:layout_height="120dp"
         android:layout_below="@id/relativeLayout"
         android:layout_marginTop="-50dp"
-        android:background="@drawable/color" />
+        android:background="@drawable/pencil"
+        android:backgroundTint="@color/teal_200" />
 
     <RelativeLayout
         android:id="@+id/container"

@@ -28,10 +28,9 @@ public class VerifyActivity extends AppCompatActivity {
 
     private String mVerificationId;
 
-    //The edittext to input the code
     private EditText editTextCode;
 
-    //firebase auth object
+
     private FirebaseAuth mAuth;
 
 
@@ -40,20 +39,18 @@ public class VerifyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify);
 
-        //initializing objects
+
         mAuth = FirebaseAuth.getInstance();
         editTextCode = findViewById(R.id.editTextCode);
 
 
-        //getting mobile number from the previous activity
-        //and sending the verification code to the number
+
         Intent intent = getIntent();
         String mobile = intent.getStringExtra("mobile");
         sendVerificationCode(mobile);
 
 
-        //if the automatic sms detection did not work, user can also enter the code manually
-        //so adding a click listener to the button
+
         findViewById(R.id.buttonSignIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,40 +61,36 @@ public class VerifyActivity extends AppCompatActivity {
                     return;
                 }
 
-                //verifying the code entered manually
+
                 verifyVerificationCode(code);
             }
         });
 
     }
 
-    //the method is sending verification code
-    //the country id is concatenated
-    //you can take the country id as user input as well
+    
     private void sendVerificationCode(String mobile) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+91" + mobile,
-                60,
+                120,
                 SECONDS,
                 this,
                 mCallbacks);
     }
 
 
-    //the callback to detect the verification status
+
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
         @Override
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
 
-            //Getting the code sent by SMS
+
             String code = phoneAuthCredential.getSmsCode();
 
-            //sometime the code is not detected automatically
-            //in this case the code will be null
-            //so user has to manually enter the code
+
             if (code != null) {
                 editTextCode.setText(code);
-                //verifying the code
+
                 verifyVerificationCode(code);
             }
         }
@@ -111,7 +104,7 @@ public class VerifyActivity extends AppCompatActivity {
         public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
             super.onCodeSent(s, forceResendingToken);
 
-            //storing the verification id that is sent to the user
+
             mVerificationId = s;
         }
     };
@@ -138,7 +131,7 @@ public class VerifyActivity extends AppCompatActivity {
 
                         } else {
 
-                            //verification unsuccessful.. display an error message
+
 
                             String message = "Somthing is wrong, we will fix it soon...";
 
